@@ -1,0 +1,4 @@
+# Set Subcription and RG
+
+alias ass='az account set --subscription'
+alias arg='f(){ az configure --defaults group=$1;  unset -f f; }; f'
