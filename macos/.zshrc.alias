@@ -1,0 +1,119 @@
+#!/bin/zsh
+
+#### kubectl
+source $HOME/.zshrc.kubectl
+
+#### fzf
+alias fh="history -n 1 | fzf +s --tac | tr -d '\n' | tee >(pbcopy)"
+alias ff="fzf --preview 'cat {}'| tee >(pbcopy)"
+
+#### OnePassword
+source $HOME/.op.getpass
+
+#### GIT
+# add
+alias ga='git add'
+
+# commit
+alias gcm='git commit -m'
+alias gcma='git commit -am'
+
+# checkout
+alias gco='git checkout'
+alias gcom='git checkout master'
+alias gcoma='git checkout main'
+alias gcob='git checkout -b'
+# branch
+alias gbv='git branch -v'
+alias gbd='git branch -D'
+# fetch
+alias gfo='git fetch origin'
+
+# pull
+alias gpull='git pull'
+alias gpullr='git pull --rebase'
+
+# push
+alias gp='git push'
+alias gpu='git push -u origin $(git branch --show-current)'
+alias gpf='git push -f'
+
+# log
+# glo() {
+#     if [ -z $1 ]; then
+#         git log --oneline -n 10;
+#     else
+#         git log --oneline -n $1
+#     fi
+# }
+alias glo='git log --oneline'
+
+# rebase
+alias grb='git rebase'
+alias grbm='git rebase origin/master'
+alias grbma='git rebase origin/main'
+alias grba='git rebase --abort'
+alias grbc='git rebase --continue'
+
+# reset
+alias grs='git reset'
+alias grsh='git reset --hard'
+
+# cherry-pick
+alias gch='git cherry-pick'
+
+# stash
+alias gst='git stash'
+alias gstp='git stash pop'
+
+# update
+alias gupdate='git stash && git fetch origin && git status && git merge --no-edit $(git symbolic-ref refs/remotes/origin/HEAD) && git stash pop'
+
+# branch clean
+alias git_branch_clean="git fetch origin --prune; git branch -vv | grep -e \"origin\/.*: gone\" | awk '{print \$1;}' | xargs git branch -D"
+
+cleanup_clipboard() {
+    ### Clean up clip board now or after X second
+    ### cleanup_clipboad 15 -- clean up after 15 secs
+    ### cleanup_clipboad -- clean up now
+    sleep ${1:-"0"}
+    echo -n "" | pbcopy
+    echo "Clipboard clean up!"
+}
+
+bluetooth() {
+    case $1 in
+        (on) setBT=1  ;;
+        (off) setBT=0  ;;
+        (*) echo "Wrong syntax: $0 on/off"
+            return 1  ;;
+    esac
+    osascript <<EOF
+    tell application "System Events"
+        tell application process "Control Center"
+            click the first menu bar item of menu bar 1 whose description begins with "Bluetooth"
+            set isBleOn to (value of checkbox 1 of group 1 of window "Control Center")
+            if not isBleOn = $setBT
+                click checkbox 1 of group 1 of window "Control Center"
+            end if
+        end tell
+        key code 53 -- # escape key
+    end tell
+EOF
+    echo "Bluetooth $1..."
+}
+
+online() {
+    networksetup -setairportpower en0 on
+    echo "Wifi on..."
+    bluetooth on
+}
+
+offline() {
+    vpn out
+    networksetup -setairportpower en0 off
+    echo "Wifi off..."
+    bluetooth off
+    pmset sleepnow
+}
+

@@ -1,0 +1,78 @@
+{
+    "editor.fontFamily": "'MesloLGS NF'",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "terminal.external.osxExec": "iTerm.app",
+    "workbench.colorCustomizations": {
+        "terminal.foreground": "#f9f9f4",
+        "terminal.background": "#282935",
+        "terminal.selectionBackground": "#55596d",
+        "terminalCursor.background": "#000000",
+        "terminalCursor.foreground": "#c7c7c7",
+        "terminal.ansiBlack": "#000000",
+        "terminal.ansiBlue": "#c9a8fa",
+        "terminal.ansiCyan": "#99ecfd",
+        "terminal.ansiGreen": "#59f68d",
+        "terminal.ansiMagenta": "#ff92d0",
+        "terminal.ansiRed": "#ff6d67",
+        "terminal.ansiWhite": "#c7c7c7",
+        "terminal.ansiYellow": "#f3f89d"
+    },
+    "[terraform]": {
+        "editor.defaultFormatter": "hashicorp.terraform",
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "file"
+    },
+    "[terraform-vars]": {
+        "editor.defaultFormatter": "hashicorp.terraform",
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "file"
+    },
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "gitlens.remotes": [
+        {
+            "domain": "git.taservs.net",
+            "type": "GitHub"
+        }
+    ],
+    "files.insertFinalNewline": true,
+    "terraform.experimentalFeatures.validateOnSave": false,
+    "editor.formatOnSave": true,
+    "files.autoSaveDelay": 100,
+    "explorer.confirmDragAndDrop": false,
+    // "terraform.languageServer.external": true,
+    "terraform.languageServer.terraform.path": "/usr/local/Cellar/tfenv/3.0.0/versions/0.12.31/terraform",
+    "python.testing.autoTestDiscoverOnSaveEnabled": false,
+    "files.autoSave": "afterDelay",
+    "files.trimTrailingWhitespace": true,
+    "files.watcherExclude": {
+        "**/.bloop": true,
+        "**/.metals": true,
+        "**/.ammonite": true
+    },
+    "[python]": {
+        "editor.tabSize": 4,
+        "gitlens.codeLens.symbolScopes": [
+            // "!Module"
+        ],
+        "editor.wordBasedSuggestions": false,
+        "editor.formatOnType": true
+    },
+    "python.formatting.autopep8Args": [
+        "--indent-size=2"
+    ],
+    "python.venvPath": "${workspaceFolder}/.venv",
+    "git.suggestSmartCommit": false,
+    "explorer.confirmDelete": false,
+    "python.analysis.extraPaths": [],
+    "files.exclude": {},
+    "security.workspace.trust.untrustedFiles": "open",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.env.osx": {
+        "HISTFILE": "$HOME/.zsh_history"
+    },
+    "search.exclude": {
+        "**/.terragrunt-cache": true
+    },
+    "git.path": "/usr/local/bin/git",
+    "python.formatting.provider": "none"
+}
