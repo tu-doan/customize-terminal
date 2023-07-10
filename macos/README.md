@@ -6,7 +6,7 @@
 - [1password](https://1password.com/downloads/mac/)
 - [VSCode](https://code.visualstudio.com/)
 - [Go](https://go.dev/doc/install)
-- 
+- [Terragrunt](https://github.com/gruntwork-io/terragrunt/releases)
 
 ### Install HomeBrew
 ```
@@ -17,7 +17,11 @@ brew install git
 brew install zoxide
 brew install fzf
 brew install kubectl
+brew install tfenv
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+
+python3 -m pip install --user ansible
 
 ```
