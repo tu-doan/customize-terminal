@@ -9,7 +9,7 @@
 - [Terragrunt](https://github.com/gruntwork-io/terragrunt/releases)
 - [GCloud cli](https://cloud.google.com/sdk/docs/install#mac)
 
-### Install HomeBrew
+### Init script
 ```
 sudo xcode-select --install
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
